@@ -17,3 +17,16 @@ class Orange(Fruit):
         self.weight = weight
 
 
+class Apple(Fruit):
+
+    def __init__(
+            self,
+            date_picked: str,
+            color: str,
+            weight: float
+    ):
+        self.name = 'apple'
+        self.date_picked = date_picked
+        self.color = color
+        self.weight = weight
+
