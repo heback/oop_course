@@ -172,23 +172,29 @@ class TestEnrollManager:
 def main():
 
     categories = CategoryManager.add_all([Category('필수과정'), Category('기본선택'), Category('심화선택')])
-    subjects = SubjectManager.add(Subject(categories[0], '정보과학')).add_all(
-        [
-            Subject(categories[0], '정보과학'),
-            Subject(categories[0], '프로그래밍실습1'),
-            Subject(categories[0], '프로그래밍실습2')
-        ]
-    ).add_all(
-        [
-            Subject(categories[1], '자료구조'),
-            Subject(categories[1], '객체지향프로그래밍')
-        ]
-    ).add(Subject(categories[2], '알고리즘'))
+    subjects = SubjectManager.add(Subject(categories[0], '정보과학')).add_all([
+        Subject(categories[0], '프로그래밍실습1'),
+        Subject(categories[0], '프로그래밍실습2')
+    ]).add_all([
+        Subject(categories[1], '자료구조'),
+        Subject(categories[1], '객체지향프로그래밍')
+    ]).add(Subject(categories[2], '알고리즘'))
 
     courses = CourseManager.add_all([
-
+        Course(subjects[0], '2023', '1학기'),
+        Course(subjects[1], '2023', '1학기'),
+        Course(subjects[2], '2023', '2학기'),
+        Course(subjects[3], '2023', '1학기'),
+        Course(subjects[4], '2023', '2학기')
     ])
 
+    students = StudentManager.add_all([
+        Student('홍길동', 1, 1),
+        Student('유관순', 2, 1),
+        Student('홍범도', 2, 2)
+    ])
+
+    
 
 if __name__ == '__main__':
     main()
