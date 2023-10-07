@@ -39,12 +39,12 @@ class SubjectManager:
     __subject_list = list[Subject] = []
 
     @staticmethod
-    def add(cls, subject: Subject) -> Optional['SubjectManager', None]:
+    def add(cls, subject: Subject) -> 'SubjectManager':
         cls.__subject_list.append(subject)
         return cls
 
     @staticmethod
-    def add_all(cls, subjects: list[Subject]) -> Optional['SubjectManager', None]:
+    def add_all(cls, subjects: list[Subject]) -> 'SubjectManager':
         for subject in subjects:
             cls.add(subject)
         return cls
@@ -62,8 +62,16 @@ class CourseManager:
 
     __course_list = list[Course] = []
 
-    def add(self, course: Course):
-        self.__course_list.append(course)
+    @staticmethod
+    def add(cls, course: Course) -> 'CourseManager':
+        cls.__course_list.append(course)
+        return cls
+
+    @staticmethod
+    def add_all(cls,courses: list[Course]) -> 'CourseManager':
+        for course in courses:
+            cls.add(course)
+        return cls
 
 
 class Test:
@@ -78,8 +86,16 @@ class TestManager:
 
     __test_list = list[Test] = []
 
-    def add(self, test: Test):
-        self.__test_list.append(test)
+    @staticmethod
+    def add(cls, test: Test) -> 'TestManager':
+        cls.__test_list.append(test)
+        return cls
+
+    @staticmethod
+    def add_all(cls, tests: list[Test]) -> 'TestManager':
+        for test in tests:
+            cls.add(test)
+        return cls
 
 
 class Student:
@@ -94,8 +110,16 @@ class StudentManager:
 
     __student_list = list[Student] = []
 
-    def add(self, student: Student):
-        self.__student_list.append(student)
+    @staticmethod
+    def add(cls, student: Student) -> 'StudentManager':
+        cls.__student_list.append(student)
+        return cls
+
+    @staticmethod
+    def add_all(cls, students: list[Student]) -> 'StudentManager':
+        for student in students:
+            cls.add(student)
+        return cls
 
 
 class CourseEnroll:
@@ -109,8 +133,16 @@ class CourseEnrollManager:
 
     __course_enroll_list = list[CourseEnroll] = []
 
-    def add(self, course_enroll: CourseEnroll):
-        self.__course_enroll_list.append(course_enroll)
+    @staticmethod
+    def add(cls, course_enroll: CourseEnroll) -> 'CourseEnrollManager':
+        cls.__course_enroll_list.append(course_enroll)
+        return cls
+
+    @staticmethod
+    def add_all(cls, course_enrolls: list[CourseEnroll]) -> 'CourseEnrollManager':
+        for course_enroll in course_enrolls:
+            cls.add(course_enroll)
+        return cls
 
 
 class TestEnroll:
@@ -125,16 +157,37 @@ class TestEnrollManager:
 
     __test_enroll_list = list[TestEnroll] = []
 
-    def __add__(self, test_enroll: TestEnroll):
-        self.__test_enroll_list.append(test_enroll)
+    @staticmethod
+    def add(cls, test_enroll: TestEnroll) -> 'TestEnrollManager':
+        cls.__test_enroll_list.append(test_enroll)
+        return cls
+
+    @staticmethod
+    def add_all(cls, test_enrolls: list[TestEnroll]) -> 'TestEnrollManager':
+        for test_enroll in test_enrolls:
+            cls.add(test_enroll)
+        return cls
 
 
 def main():
 
-    categories = CategoryManager.add_all([Category('공통필수'), Category('심화필수'), Category('심화선택')])
-    subjects = SubjectManager.add(categories[0], '정보과학')
+    categories = CategoryManager.add_all([Category('필수과정'), Category('기본선택'), Category('심화선택')])
+    subjects = SubjectManager.add(Subject(categories[0], '정보과학')).add_all(
+        [
+            Subject(categories[0], '정보과학'),
+            Subject(categories[0], '프로그래밍실습1'),
+            Subject(categories[0], '프로그래밍실습2')
+        ]
+    ).add_all(
+        [
+            Subject(categories[1], '자료구조'),
+            Subject(categories[1], '객체지향프로그래밍')
+        ]
+    ).add(Subject(categories[2], '알고리즘'))
 
+    courses = CourseManager.add_all([
 
+    ])
 
 
 if __name__ == '__main__':
