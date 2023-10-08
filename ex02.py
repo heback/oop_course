@@ -1,30 +1,38 @@
-from typing import Optional
+from typing import List, Optional
+
 
 class Category:
 
     def __init__(self, name: str):
         self.name = name
 
+    def __str__(self):
+        return f'{self.name} '
+
 
 class CategoryManager:
 
-    __category_list = list[Category] = []
+    __category_list: list[Category] = []
 
-    @staticmethod
-    def add(cls, category: Category) -> Optional['CategoryManager', None]:
-        cls.__category_list.append(category)
-        return cls
+    def add(self, category: Category) -> 'CategoryManager':
+        self.__category_list.append(category)
+        return self
 
-
-    @staticmethod
-    def add_all(cls, categories: list[Category]) -> 'CategoryManager':
+    def add_all(self, categories: list[Category]) -> 'CategoryManager':
         for cat in categories:
-            cls.add(cat)
-        return cls
+            self.add(cat)
+        return self
+
+    def __getitem__(self, i):
+        if i < len(self.__category_list):
+            return self.__category_list[i]
+        raise Exception('부적절한 인덱스 요청')
 
     def __str__(self):
         for row in self.__category_list:
-            print(row)
+            if row is not None:
+                print(row)
+        return ''
 
 
 class Subject:
@@ -33,21 +41,33 @@ class Subject:
         self.category = category
         self.name = name
 
+    def __str__(self):
+        return f'{self.category.name} {self.name} '
+
 
 class SubjectManager:
 
-    __subject_list = list[Subject] = []
+    __subject_list: list[Subject] = []
 
-    @staticmethod
-    def add(cls, subject: Subject) -> 'SubjectManager':
-        cls.__subject_list.append(subject)
-        return cls
+    def add(self, subject: Subject) -> 'SubjectManager':
+        self.__subject_list.append(subject)
+        return self
 
-    @staticmethod
-    def add_all(cls, subjects: list[Subject]) -> 'SubjectManager':
+    def add_all(self, subjects: list[Subject]) -> 'SubjectManager':
         for subject in subjects:
-            cls.add(subject)
-        return cls
+            self.add(subject)
+        return self
+
+    def __getitem__(self, i):
+        if i < len(self.__subject_list):
+            return self.__subject_list[i]
+        raise Exception('부적절한 인덱스 요청')
+
+    def __str__(self):
+        for row in self.__subject_list:
+            if row is not None:
+                print(row)
+        return ''
 
 
 class Course:
@@ -57,21 +77,33 @@ class Course:
         self.school_year = school_year
         self.semester = semester
 
+    def __str__(self):
+        return f'{self.subject} {self.school_year} {self.semester} '
+
 
 class CourseManager:
 
-    __course_list = list[Course] = []
+    __course_list: list[Course] = []
 
-    @staticmethod
-    def add(cls, course: Course) -> 'CourseManager':
-        cls.__course_list.append(course)
-        return cls
+    def add(self, course: Course) -> 'CourseManager':
+        self.__course_list.append(course)
+        return self
 
-    @staticmethod
-    def add_all(cls,courses: list[Course]) -> 'CourseManager':
+    def add_all(self, courses: list[Course]) -> 'CourseManager':
         for course in courses:
-            cls.add(course)
-        return cls
+            self.add(course)
+        return self
+
+    def __getitem__(self, i):
+        if i < len(self.__course_list):
+            return self.__course_list[i]
+        raise Exception('부적절한 인덱스 요청')
+
+    def __str__(self):
+        for row in self.__course_list:
+            if row is not None:
+                print(row)
+        return ''
 
 
 class Test:
@@ -81,21 +113,33 @@ class Test:
         self.test_type = test_type
         self.test_score = test_score
 
+    def __str__(self):
+        return f'{self.course} {self.test_type} {self.test_score} '
+
 
 class TestManager:
 
-    __test_list = list[Test] = []
+    __test_list: list[Test] = []
 
-    @staticmethod
-    def add(cls, test: Test) -> 'TestManager':
-        cls.__test_list.append(test)
-        return cls
+    def add(self, test: Test) -> 'TestManager':
+        self.__test_list.append(test)
+        return self
 
-    @staticmethod
-    def add_all(cls, tests: list[Test]) -> 'TestManager':
+    def add_all(self, tests: list[Test]) -> 'TestManager':
         for test in tests:
-            cls.add(test)
-        return cls
+            self.add(test)
+        return self
+
+    def __getitem__(self, i):
+        if i < len(self.__test_list):
+            return self.__test_list[i]
+        raise Exception('부적절한 인덱스 요청')
+
+    def __str__(self):
+        for row in self.__test_list:
+            if row is not None:
+                print(row)
+        return ''
 
 
 class Student:
@@ -105,21 +149,33 @@ class Student:
         self.grade = grade
         self.class_no = class_no
 
+    def __str__(self):
+        return f'{self.name} {self.grade} {self.class_no} '
+
 
 class StudentManager:
 
-    __student_list = list[Student] = []
+    __student_list: list[Student] = []
 
-    @staticmethod
-    def add(cls, student: Student) -> 'StudentManager':
-        cls.__student_list.append(student)
-        return cls
+    def add(self, student: Student) -> 'StudentManager':
+        self.__student_list.append(student)
+        return self
 
-    @staticmethod
-    def add_all(cls, students: list[Student]) -> 'StudentManager':
+    def add_all(self, students: list[Student]) -> 'StudentManager':
         for student in students:
-            cls.add(student)
-        return cls
+            self.add(student)
+        return self
+
+    def __getitem__(self, i):
+        if i < len(self.__student_list):
+            return self.__student_list[i]
+        raise Exception('부적절한 인덱스 요청')
+
+    def __str__(self):
+        for row in self.__student_list:
+            if row is not None:
+                print(row)
+        return ''
 
 
 class CourseEnroll:
@@ -128,21 +184,33 @@ class CourseEnroll:
         self.student = student
         self.course = course
 
+    def __str__(self):
+        return f'{self.student} {self.course} '
+
 
 class CourseEnrollManager:
 
-    __course_enroll_list = list[CourseEnroll] = []
+    __course_enroll_list: list[CourseEnroll] = []
 
-    @staticmethod
-    def add(cls, course_enroll: CourseEnroll) -> 'CourseEnrollManager':
-        cls.__course_enroll_list.append(course_enroll)
-        return cls
+    def add(self, course_enroll: CourseEnroll) -> 'CourseEnrollManager':
+        self.__course_enroll_list.append(course_enroll)
+        return self
 
-    @staticmethod
-    def add_all(cls, course_enrolls: list[CourseEnroll]) -> 'CourseEnrollManager':
+    def add_all(self, course_enrolls: list[CourseEnroll]) -> 'CourseEnrollManager':
         for course_enroll in course_enrolls:
-            cls.add(course_enroll)
-        return cls
+            self.add(course_enroll)
+        return self
+
+    def __getitem__(self, i):
+        if i < len(self.__course_enroll_list):
+            return self.__course_enroll_list[i]
+        raise Exception('부적절한 인덱스 요청')
+
+    def __str__(self):
+        for row in self.__course_enroll_list:
+            if row is not None:
+                print(row)
+        return ''
 
 
 class TestEnroll:
@@ -152,27 +220,45 @@ class TestEnroll:
         self.student = student
         self.score = score
 
+    def __str__(self):
+        return f'{self.test} {self.student} {self.score} '
+
 
 class TestEnrollManager:
 
-    __test_enroll_list = list[TestEnroll] = []
+    __test_enroll_list: list[TestEnroll] = []
 
-    @staticmethod
-    def add(cls, test_enroll: TestEnroll) -> 'TestEnrollManager':
-        cls.__test_enroll_list.append(test_enroll)
-        return cls
+    def add(self, test_enroll: TestEnroll) -> 'TestEnrollManager':
+        self.__test_enroll_list.append(test_enroll)
+        return self
 
-    @staticmethod
-    def add_all(cls, test_enrolls: list[TestEnroll]) -> 'TestEnrollManager':
+    def add_all(self, test_enrolls: list[TestEnroll]) -> 'TestEnrollManager':
         for test_enroll in test_enrolls:
-            cls.add(test_enroll)
-        return cls
+            self.add(test_enroll)
+        return self
+
+    def __getitem__(self, i):
+        if i < len(TestEnrollManager.__test_enroll_list):
+            return TestEnrollManager.__test_enroll_list[i]
+        raise Exception('부적절한 인덱스 요청')
+
+    def __str__(self):
+        for row in self.__test_enroll_list:
+            if row is not None:
+                print(row)
+        return ''
 
 
 def main():
 
-    categories = CategoryManager.add_all([Category('필수과정'), Category('기본선택'), Category('심화선택')])
-    subjects = SubjectManager.add(Subject(categories[0], '정보과학')).add_all([
+    categories = CategoryManager().add_all([
+        Category('필수과정'),
+        Category('기본선택'),
+        Category('심화선택')
+    ])
+
+    subjects = SubjectManager().add(
+        Subject(categories[0], '정보과학')).add_all([
         Subject(categories[0], '프로그래밍실습1'),
         Subject(categories[0], '프로그래밍실습2')
     ]).add_all([
@@ -180,7 +266,7 @@ def main():
         Subject(categories[1], '객체지향프로그래밍')
     ]).add(Subject(categories[2], '알고리즘'))
 
-    courses = CourseManager.add_all([
+    courses = CourseManager().add_all([
         Course(subjects[0], '2023', '1학기'),
         Course(subjects[1], '2023', '1학기'),
         Course(subjects[2], '2023', '2학기'),
@@ -188,13 +274,51 @@ def main():
         Course(subjects[4], '2023', '2학기')
     ])
 
-    students = StudentManager.add_all([
+    students = StudentManager().add_all([
         Student('홍길동', 1, 1),
         Student('유관순', 2, 1),
         Student('홍범도', 2, 2)
+    ]).add(
+        Student('이순신', 1, 2)
+    )
+
+    course_enrolls = CourseEnrollManager().add_all([
+        CourseEnroll(students[0], courses[0]),
+        CourseEnroll(students[1], courses[1]),
+        CourseEnroll(students[1], courses[2]),
+        CourseEnroll(students[2], courses[2]),
+        CourseEnroll(students[2], courses[3]),
     ])
 
-    
+    tests = TestManager().add_all([
+        Test(courses[0], '중간고사', 100),
+        Test(courses[0], '기말고사', 100),
+        Test(courses[1], '중간고사', 100),
+        Test(courses[1], '기말고사', 100)
+    ])
+
+    test_enrolls = TestEnrollManager().add_all([
+        TestEnroll(tests[0], students[0],80),
+        TestEnroll(tests[1], students[0], 85),
+        TestEnroll(tests[2], students[1], 90),
+        TestEnroll(tests[3], students[1], 95)
+    ])
+
+    print('교육과정 구분')
+    print(categories)
+    print('교과목')
+    print(subjects)
+    print('교육과정개설')
+    print(courses)
+    print('학생')
+    print(students)
+    print('수강')
+    print(course_enrolls)
+    print('시험')
+    print(tests)
+    print('응시')
+    print(test_enrolls)
+
 
 if __name__ == '__main__':
     main()
