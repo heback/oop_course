@@ -1,6 +1,3 @@
-from typing import List, Optional
-
-
 class Category:
 
     def __init__(self, name: str):

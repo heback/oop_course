@@ -112,6 +112,7 @@ class InventoryManagement:
             self.__baskets.pop()
         else:
             print(f'현재 오렌지 재고량: {self.check_baskets()}, 요청하신 거래는 거절되었습니다.')
+            print('-' * 50)
 
     def sales_barrel(self, barrels: int, location: str):
         if barrels <= self.check_barrels():
@@ -119,8 +120,11 @@ class InventoryManagement:
             self.__barrels.pop()
         else:
             print(f'현재 사과 재고량: {self.check_barrels()}, 요청하신 거래는 거절되었습니다.')
+            print('-' * 50)
 
     def print_report(self):
+        print('과일 재고 보고서')
+        print('-' * 50)
         print('오렌지 재고')
         for o in self.__baskets:
             print(o)
@@ -130,6 +134,7 @@ class InventoryManagement:
             print(o)
         print('-' * 50)
         print('판매 이력')
+        print('-' * 50)
         for o in self.__sales:
             print(o)
         print('-' * 50)
@@ -143,10 +148,13 @@ def main():
     inventory = InventoryManagement().add_basket(b1).add_basket(b2).add_barrel(a1)
 
     inventory.sales_basket(1, '대구')
-    inventory.sales_barrel(4, '대구')
+    inventory.sales_barrel(1, '대구')
 
     inventory.add_baskets(10, 30, '청송', 200.0)
     inventory.add_barrels(15, 30, '빨강', 120.0)
+
+    inventory.sales_basket(1, '포항')
+    inventory.sales_barrel(16, '포항')
 
     inventory.print_report()
 
