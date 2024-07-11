@@ -85,8 +85,10 @@ class AppLayout(Row):
             expand=True,
         )
         self._active_view: Control = self.all_boards_view
-
-        self.controls = [self.sidebar, self.toggle_nav_rail_button, self.active_view]
+        self.controls = [
+            self.sidebar,
+            self.toggle_nav_rail_button,
+            self.active_view]
 
     @property
     def active_view(self):
