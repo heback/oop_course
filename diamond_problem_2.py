@@ -11,7 +11,7 @@ class Employee:
 
     def get_salary(self) -> float:
         res = self.salary
-        print('Employee: ', self.salary)
+        # print('Employee: ', self.salary)
         return res
 
 
@@ -25,7 +25,7 @@ class Manager(Employee):
 
     def get_salary(self) -> float:
         res = super().get_salary() + self.bonus
-        print('Manager: ', res)
+        # print('Manager: ', res)
         return res
 
 
@@ -39,7 +39,7 @@ class DepartmentHead(Employee):
 
     def get_salary(self) -> float:
         res = super().get_salary() + (self.department_budget * 0.1)
-        print('DepartmentHead: ', res)
+        # print('DepartmentHead: ', res)
         return res
 
 
@@ -55,15 +55,19 @@ class SeniorManager(Manager, DepartmentHead):
 
     def get_salary(self) -> float:
         res = super().get_salary()  # Manager의 get_salary 호출
-        print('SeniorManager: ', res)
+        # print('SeniorManager: ', res)
         return res
 
 
 # 사용 예제
-senior_manager = SeniorManager(name="Alice", salary=70000.0,
-                               bonus=10000.0, department_budget=50000.0)
+senior_manager = SeniorManager(name="Alice", salary=70000,
+                               bonus=10000, department_budget=50000)
 print(senior_manager.get_salary())  # Output: 87000.0
+print(SeniorManager.__mro__)
 
 manager = Manager(name='Jungu', salary=70000, bonus=10000)
 print(manager.get_salary())
+
+department_head = DepartmentHead(name='Eunjin', salary=70000, department_budget=130000)
+print(department_head.get_salary())
 
