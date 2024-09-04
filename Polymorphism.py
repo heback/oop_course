@@ -37,3 +37,6 @@ class OGGFile(AudioFile):
     def play(self) -> None:
         print(f'Playing {self.filepath} as ogg')
 
+
+ogg = OGGFile(Path('a.ogg'))
+ogg.play()
