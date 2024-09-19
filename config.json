@@ -1,0 +1,10 @@
+{
+    "database_host": "localhost",
+    "database_port": 3306,
+    "database_user": "root",
+    "database_password": "password123",
+    "api_key": "abcdef123456",
+    "log_level": "DEBUG",
+    "max_connections": 100
+}
+

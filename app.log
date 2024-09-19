@@ -1,0 +1,22 @@
+2024-09-19 11:05:02,887 - DEBUG - 이것은 디버그 메시지입니다. 😀
+2024-09-19 11:05:02,887 - INFO - 이것은 정보 메시지입니다. 안녕하세요!
+2024-09-19 11:10:42 - AppLogger - DEBUG - singleton_logger.py:42 - 디버그 메시지입니다.
+2024-09-19 11:10:42 - AppLogger - INFO - singleton_logger.py:43 - 정보 메시지입니다.
+2024-09-19 11:10:42 - AppLogger - WARNING - singleton_logger.py:44 - 경고 메시지입니다.
+2024-09-19 11:10:42 - AppLogger - ERROR - singleton_logger.py:45 - 에러 메시지입니다.
+2024-09-19 11:10:42 - AppLogger - CRITICAL - singleton_logger.py:46 - 치명적인 에러 메시지입니다.
+2024-09-19 11:25:53 - AppLogger - DEBUG - singleton_logger.py:42 - 디버그 메시지입니다.
+2024-09-19 11:25:53 - AppLogger - INFO - singleton_logger.py:43 - 정보 메시지입니다.
+2024-09-19 11:25:53 - AppLogger - WARNING - singleton_logger.py:44 - 경고 메시지입니다.
+2024-09-19 11:25:53 - AppLogger - ERROR - singleton_logger.py:45 - 에러 메시지입니다.
+2024-09-19 11:25:53 - AppLogger - CRITICAL - singleton_logger.py:46 - 치명적인 에러 메시지입니다.
+2024-09-19 11:26:44 - AppLogger - DEBUG - singleton_logger.py:43 - 디버그 메시지입니다.
+2024-09-19 11:26:44 - AppLogger - INFO - singleton_logger.py:44 - 정보 메시지입니다.
+2024-09-19 11:26:44 - AppLogger - WARNING - singleton_logger.py:45 - 경고 메시지입니다.
+2024-09-19 11:26:44 - AppLogger - ERROR - singleton_logger.py:46 - 에러 메시지입니다.
+2024-09-19 11:26:44 - AppLogger - CRITICAL - singleton_logger.py:47 - 치명적인 에러 메시지입니다.
+2024-09-19 11:27:20 - AppLogger - DEBUG - singleton_logger.py:43 - 디버그 메시지입니다.
+2024-09-19 11:27:20 - AppLogger - INFO - singleton_logger.py:44 - 정보 메시지입니다.
+2024-09-19 11:27:20 - AppLogger - WARNING - singleton_logger.py:45 - 경고 메시지입니다.
+2024-09-19 11:27:20 - AppLogger - ERROR - singleton_logger.py:46 - 에러 메시지입니다.
+2024-09-19 11:27:20 - AppLogger - CRITICAL - singleton_logger.py:47 - 치명적인 에러 메시지입니다.
